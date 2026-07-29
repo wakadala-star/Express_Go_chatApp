@@ -1,0 +1,58 @@
+<div class="chat-container">
+  @if (activeConversation(); as conversation) {
+    <div class="chat-header">
+      <div class="header-left">
+        <img [src]="conversation.contact.avatar" [alt]="conversation.contact.name" class="header-avatar" />
+        <div class="header-info">
+          <h3>{{ conversation.contact.name }}</h3>
+          <span class="role">{{ conversation.contact.role }}</span>
+        </div>
+      </div>
+      <div class="header-actions">
+        <button class="action-btn"><app-icon name="call" [size]="18"></app-icon></button>
+        <button class="action-btn"><app-icon name="video" [size]="18"></app-icon></button>
+        <button class="action-btn"><app-icon name="search" [size]="18"></app-icon></button>
+        <button class="action-btn"><app-icon name="more" [size]="18"></app-icon></button>
+        <button class="action-btn" (click)="toggleProfile()"><app-icon name="info" [size]="18"></app-icon></button>
+      </div>
+    </div>
+
+    <div class="messages-area">
+      <div class="date-divider">
+        <span>Today</span>
+      </div>
+
+      @for (message of conversation.messages; track message.id) {
+        <div class="message" [class.sent]="message.senderId === 0" [class.received]="message.senderId !== 0">
+          @if (message.senderId !== 0) {
+            <img [src]="conversation.contact.avatar" [alt]="conversation.contact.name" class="message-avatar" />
+          }
+          <div class="message-content">
+            <div class="message-bubble">
+              <p>{{ message.text }}</p>
+            </div>
+            <span class="message-time">{{ message.time }}</span>
+          </div>
+        </div>
+      }
+    </div>
+
+    <div class="message-input-area">
+      <div class="input-wrapper">
+        <button class="input-icon"><app-icon name="plus" [size]="20"></app-icon></button>
+        <input
+          type="text"
+          placeholder="Type your message..."
+          class="message-input"
+          [(ngModel)]="messageText"
+        />
+        <div class="input-actions">
+          <button class="input-icon"><app-icon name="emoji" [size]="20"></app-icon></button>
+          <button class="input-icon"><app-icon name="attach" [size]="20"></app-icon></button>
+          <button class="input-icon"><app-icon name="mic" [size]="20"></app-icon></button>
+          <button class="send-btn"><app-icon name="send" [size]="18" color="#fff"></app-icon></button>
+        </div>
+      </div>
+    </div>
+  }
+</div>

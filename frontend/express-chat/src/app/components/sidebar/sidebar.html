@@ -1,0 +1,39 @@
+<div class="sidebar" [class.collapsed]="collapsed()">
+  <div class="sidebar-top">
+    <button class="logo-btn" (click)="onToggle()">
+      <app-icon name="logo" [size]="32" color="#fff"></app-icon>
+      @if (!collapsed()) {
+        <span class="app-name">Express Go</span>
+      }
+    </button>
+
+    <nav class="nav-icons">
+      @for (item of navItems; track item.label) {
+        <button class="nav-item" [class.active]="item.active" [title]="item.label">
+          <app-icon [name]="item.icon" [size]="20"></app-icon>
+          @if (!collapsed()) {
+            <span class="nav-label">{{ item.label }}</span>
+          }
+        </button>
+      }
+    </nav>
+  </div>
+
+  <div class="sidebar-bottom">
+    <button class="nav-item" [title]="'Settings'">
+      <app-icon name="settings" [size]="20"></app-icon>
+      @if (!collapsed()) {
+        <span class="nav-label">Settings</span>
+      }
+    </button>
+    <div class="user-row">
+      <div class="user-avatar-wrapper">
+        <img src="https://i.pravatar.cc/150?img=7" alt="Mark Wakadala" class="user-avatar" />
+        <span class="notification-dot"></span>
+      </div>
+      @if (!collapsed()) {
+        <span class="user-name">Mark Wakadala</span>
+      }
+    </div>
+  </div>
+</div>

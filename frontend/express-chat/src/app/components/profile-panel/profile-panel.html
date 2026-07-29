@@ -1,0 +1,84 @@
+@if (showProfile(); as show) {
+  <div class="profile-panel" [class.hidden]="!show">
+    <div class="profile-header">
+      <h3>Profile</h3>
+      <button class="close-btn" (click)="closeProfile()">
+        <app-icon name="close" [size]="18"></app-icon>
+      </button>
+    </div>
+
+    @if (activeContact(); as contact) {
+      <div class="profile-content">
+        <div class="profile-avatar-section">
+          <img [src]="contact.avatar" [alt]="contact.name" class="profile-avatar" />
+          <h2 class="profile-name">{{ contact.name }}</h2>
+          <span class="profile-role">{{ contact.role }}</span>
+        </div>
+
+        <div class="profile-actions">
+          <button class="profile-action-btn">
+            <app-icon name="call" [size]="18"></app-icon>
+          </button>
+          <button class="profile-action-btn">
+            <app-icon name="video" [size]="18"></app-icon>
+          </button>
+          <button class="profile-action-btn">
+            <app-icon name="email" [size]="18"></app-icon>
+          </button>
+          <button class="profile-action-btn">
+            <app-icon name="search" [size]="18"></app-icon>
+          </button>
+        </div>
+
+        <div class="profile-details">
+          <div class="detail-section">
+            <h4>Phone</h4>
+            <div class="detail-row">
+              <span class="detail-value">{{ contact.phone }}</span>
+              <button class="detail-icon"><app-icon name="edit" [size]="14"></app-icon></button>
+            </div>
+          </div>
+
+          <div class="detail-section">
+            <h4>Email</h4>
+            <div class="detail-row">
+              <a class="detail-link" href="mailto:{{ contact.email }}">{{ contact.email }}</a>
+              <button class="detail-icon"><app-icon name="edit" [size]="14"></app-icon></button>
+            </div>
+          </div>
+
+          <div class="info-grid">
+            <div class="info-item">
+              <app-icon name="person" [size]="16" color="#999"></app-icon>
+              <div>
+                <span class="info-label">Full Name</span>
+                <span class="info-value">{{ contact.name }}</span>
+              </div>
+            </div>
+            <div class="info-item">
+              <app-icon name="location" [size]="16" color="#999"></app-icon>
+              <div>
+                <span class="info-label">Location</span>
+                <span class="info-value">{{ contact.location }}</span>
+              </div>
+            </div>
+            <div class="info-item">
+              <app-icon name="calendar" [size]="16" color="#999"></app-icon>
+              <div>
+                <span class="info-label">Member Since</span>
+                <span class="info-value">{{ contact.memberSince }}</span>
+              </div>
+            </div>
+            <div class="info-item">
+              <app-icon name="globe" [size]="16" color="#999"></app-icon>
+              <div>
+                <span class="info-label">Website</span>
+                <a class="info-link" href="https://{{ contact.website }}" target="_blank">{{ contact.website }}</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    }
+  </div>
+}

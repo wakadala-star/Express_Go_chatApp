@@ -1,0 +1,19 @@
+:host {
+  display: block;
+  height: 100vh;
+  width: 100vw;
+}
+
+.app-container {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  background: linear-gradient(135deg, #e0f7fa 0%, #e8f5e9 50%, #f3e5f5 100%);
+  overflow: hidden;
+}
+
+@media (max-width: 768px) {
+  .app-container {
+    flex-wrap: nowrap;
+  }
+}

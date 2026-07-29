@@ -1,0 +1,9 @@
+<div class="app-container">
+  <app-sidebar
+    [collapsed]="sidebarCollapsed()"
+    (toggleSidebar)="toggleSidebar()"
+  />
+  <app-conversations-list />
+  <app-chat-area />
+  <app-profile-panel />
+</div>
