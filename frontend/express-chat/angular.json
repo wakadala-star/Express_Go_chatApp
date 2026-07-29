@@ -57,6 +57,7 @@
           },
           "configurations": {
             "production": {
+              "baseHref": "/Express_Go_chatApp/",
               "budgets": [
                 {
                   "type": "initial",
