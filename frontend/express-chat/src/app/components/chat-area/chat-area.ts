@@ -20,4 +20,8 @@ export class ChatArea {
   toggleProfile(): void {
     this.chatService.toggleProfile();
   }
+
+  goBack(): void {
+    this.chatService.showConversationsOnMobile();
+  }
 }

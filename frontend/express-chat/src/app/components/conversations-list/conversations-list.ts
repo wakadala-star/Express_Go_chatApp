@@ -26,6 +26,6 @@ export class ConversationsList {
   ];
 
   selectConversation(conversation: Conversation): void {
-    this.chatService.selectConversation(conversation);
+    this.chatService.showChatOnMobile(conversation);
   }
 }

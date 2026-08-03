@@ -1,9 +1,47 @@
 <div class="app-container">
-  <app-sidebar
-    [collapsed]="sidebarCollapsed()"
-    (toggleSidebar)="toggleSidebar()"
-  />
-  <app-conversations-list />
-  <app-chat-area />
+  <!-- Sidebar: hidden on mobile -->
+  @if (!isMobile()) {
+    <app-sidebar
+      [collapsed]="sidebarCollapsed()"
+      (toggleSidebar)="toggleSidebar()"
+    />
+  }
+
+  <!-- Conversations list: full width on mobile, side panel on desktop/tablet -->
+  <div class="conversations-wrapper"
+       [class.mobile-hidden]="isMobile() && mobileView() !== 'conversations'">
+    <app-conversations-list />
+  </div>
+
+  <!-- Chat area: full width on mobile, side panel on desktop/tablet -->
+  <div class="chat-wrapper"
+       [class.mobile-hidden]="isMobile() && mobileView() !== 'chat'">
+    <app-chat-area />
+  </div>
+
+  <!-- Profile panel: hidden on tablet/mobile -->
   <app-profile-panel />
+
+  <!-- Mobile bottom floating nav bar - hidden when in chat view -->
+  @if (isMobile() && mobileView() !== 'chat') {
+    <nav class="mobile-bottom-nav">
+      <button class="nav-tab" [class.active]="mobileView() === 'conversations'"
+              (click)="onMobileBack()">
+        <app-icon name="chat" [size]="22"></app-icon>
+        <span>Chats</span>
+      </button>
+      <button class="nav-tab">
+        <app-icon name="people" [size]="22"></app-icon>
+        <span>Contacts</span>
+      </button>
+      <button class="nav-tab">
+        <app-icon name="calendar" [size]="22"></app-icon>
+        <span>Calendar</span>
+      </button>
+      <button class="nav-tab">
+        <app-icon name="settings" [size]="22"></app-icon>
+        <span>Settings</span>
+      </button>
+    </nav>
+  }
 </div>

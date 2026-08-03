@@ -270,6 +270,7 @@ export class ChatService {
   readonly activeConversation = signal<Conversation | null>(this.conversations[1]);
   readonly showProfile = signal<boolean>(true);
   readonly conversationsList = signal<Conversation[]>(this.conversations);
+  readonly mobileView = signal<'conversations' | 'chat'>('conversations');
 
   readonly activeContact = computed(() => this.activeConversation()?.contact ?? null);
 
@@ -287,5 +288,14 @@ export class ChatService {
 
   openProfile(): void {
     this.showProfile.set(true);
+  }
+
+  showChatOnMobile(conversation: Conversation): void {
+    this.activeConversation.set(conversation);
+    this.mobileView.set('chat');
+  }
+
+  showConversationsOnMobile(): void {
+    this.mobileView.set('conversations');
   }
 }

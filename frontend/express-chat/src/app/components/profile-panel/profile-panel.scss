@@ -232,24 +232,24 @@
   }
 }
 
+// Tablet breakpoint - hide profile panel completely
 @media (max-width: 1024px) {
+  :host {
+    display: none !important;
+  }
+
   .profile-panel {
-    width: 260px;
+    display: none !important;
   }
 }
 
+// Mobile breakpoint - profile stays hidden (chat needs full width)
 @media (max-width: 768px) {
-  .profile-panel {
-    position: fixed;
-    right: 0;
-    top: 0;
-    height: 100%;
-    z-index: 100;
-    box-shadow: -4px 0 20px rgba(0, 0, 0, 0.1);
+  :host {
+    display: none !important;
+  }
 
-    &.hidden {
-      width: 0;
-      box-shadow: none;
-    }
+  .profile-panel {
+    display: none !important;
   }
 }

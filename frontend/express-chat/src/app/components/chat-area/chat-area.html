@@ -2,6 +2,9 @@
   @if (activeConversation(); as conversation) {
     <div class="chat-header">
       <div class="header-left">
+        <button class="back-btn" (click)="goBack()">
+          <app-icon name="arrow-left" [size]="20"></app-icon>
+        </button>
         <img [src]="conversation.contact.avatar" [alt]="conversation.contact.name" class="header-avatar" />
         <div class="header-info">
           <h3>{{ conversation.contact.name }}</h3>
