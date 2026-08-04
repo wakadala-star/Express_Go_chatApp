@@ -21,7 +21,7 @@ export class ConversationsList {
   categories = [
     { label: 'Chats', icon: 'chat', active: true },
     { label: 'Groups', icon: 'people' },
-    { label: 'Messages', icon: 'email' },
+    { label: 'Unread', icon: 'email' },
     { label: 'Completed', icon: 'check' },
   ];
 

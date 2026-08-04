@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { IconComponent } from '../icons/icons';
 import { ChatService } from '../../services/chat';
@@ -15,13 +15,24 @@ export class ChatArea {
 
   activeConversation = this.chatService.activeConversation;
   activeContact = this.chatService.activeContact;
+  showProfile = this.chatService.showProfile;
   messageText = '';
+  showMoreDropdown = signal(false);
 
   toggleProfile(): void {
     this.chatService.toggleProfile();
+    this.showMoreDropdown.set(false);
   }
 
   goBack(): void {
     this.chatService.showConversationsOnMobile();
+  }
+
+  toggleMoreDropdown(): void {
+    this.showMoreDropdown.update(v => !v);
+  }
+
+  closeDropdown(): void {
+    this.showMoreDropdown.set(false);
   }
 }

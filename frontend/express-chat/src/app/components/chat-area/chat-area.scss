@@ -102,6 +102,47 @@
   }
 }
 
+// More dropdown styles
+.more-dropdown-wrapper {
+  position: relative;
+}
+
+.more-dropdown {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  margin-top: 4px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
+  min-width: 160px;
+  z-index: 100;
+  overflow: hidden;
+}
+
+.dropdown-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  padding: 12px 16px;
+  border: none;
+  background: transparent;
+  color: #333;
+  font-size: 14px;
+  font-family: 'Inter', sans-serif;
+  cursor: pointer;
+  transition: background 0.15s;
+
+  &:hover {
+    background: #f5f6fa;
+  }
+
+  span {
+    font-weight: 500;
+  }
+}
+
 .messages-area {
   flex: 1;
   min-height: 0;
@@ -280,7 +321,20 @@
   }
 }
 
-// Tablet breakpoint - adjust chat area for tablet
+// Desktop: show info button and search button, hide more dropdown
+.info-btn-desktop {
+  display: flex;
+}
+
+.search-btn-desktop {
+  display: flex;
+}
+
+.more-dropdown-wrapper {
+  display: none;
+}
+
+// Tablet breakpoint
 @media (min-width: 769px) and (max-width: 1024px) {
   .chat-header {
     padding: 12px 16px;
@@ -306,8 +360,18 @@
   .message {
     max-width: 75%;
   }
+
+  // Hide standalone info button, show more dropdown
+  .info-btn-desktop {
+    display: none;
+  }
+
+  .more-dropdown-wrapper {
+    display: block;
+  }
 }
 
+// Mobile breakpoint
 @media (max-width: 768px) {
   .back-btn {
     display: flex;
@@ -336,6 +400,15 @@
 
   .message {
     max-width: 85%;
+  }
+
+  // Hide standalone info button, show more dropdown
+  .info-btn-desktop {
+    display: none;
+  }
+
+  .more-dropdown-wrapper {
+    display: block;
   }
 }
 

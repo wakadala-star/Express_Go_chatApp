@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, HostBinding } from '@angular/core';
 import { IconComponent } from '../icons/icons';
 import { ChatService } from '../../services/chat';
 
@@ -14,6 +14,11 @@ export class ProfilePanel {
 
   activeContact = this.chatService.activeContact;
   showProfile = this.chatService.showProfile;
+
+  @HostBinding('class.hidden')
+  get isHidden(): boolean {
+    return !this.showProfile();
+  }
 
   closeProfile(): void {
     this.chatService.closeProfile();

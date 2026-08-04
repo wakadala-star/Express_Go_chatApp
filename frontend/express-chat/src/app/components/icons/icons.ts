@@ -60,9 +60,9 @@ import { Component, Input } from '@angular/core';
           <rect x="1" y="5" width="15" height="14" rx="2" ry="2"/>
         }
         @case ('more') {
+          <circle cx="12" cy="5" r="1"/>
           <circle cx="12" cy="12" r="1"/>
-          <circle cx="19" cy="12" r="1"/>
-          <circle cx="5" cy="12" r="1"/>
+          <circle cx="12" cy="19" r="1"/>
         }
         @case ('info') {
           <circle cx="12" cy="12" r="10"/>
