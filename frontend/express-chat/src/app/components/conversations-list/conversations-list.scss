@@ -12,6 +12,7 @@
   background: #fff;
   border-right: 1px solid #e8e8e8;
   position: relative;
+  overflow: visible;
 }
 
 .search-section {
@@ -286,10 +287,13 @@
     width: 100%;
     max-width: none;
     border-right: none;
+    padding-bottom: 70px;
   }
 
   .fab-button {
     bottom: 80px;
+    right: 20px;
+    z-index: 60;
   }
 }
 

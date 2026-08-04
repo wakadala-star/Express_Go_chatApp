@@ -16,6 +16,8 @@
 .conversations-wrapper,
 .chat-wrapper {
   height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 .mobile-hidden {
