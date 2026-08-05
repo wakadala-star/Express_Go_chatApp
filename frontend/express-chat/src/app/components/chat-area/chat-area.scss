@@ -433,4 +433,7 @@
   .message-bubble p {
     font-size: 13px;
   }
+  .input-actions{
+    padding-bottom: env(safe-area-inset-bottom);
+  }
 }
